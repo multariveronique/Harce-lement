@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossier d'Instruction d'Îlot | Cellule pHARe (Collège de Biguglia - 4ème)</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #0284c7;
+      --accent: #dc2626;
+      --accent-green: #15803d;
+      --border: #334155;
+      --bg-box: #f8fafc;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #f1f5f9;
+      color: #0f172a;
+      padding: 20px 10px;
+      line-height: 1.4;
+    }
+    .no-print-bar {
+      max-width: 900px;
+      margin: 0 auto 16px auto;
+      background: #1e293b;
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    .print-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .btn-p {
+      background: #0284c7;
+      color: #fff;
+      border: none;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-p:hover { background: #0369a1; }
+    .btn-p.all { background: #16a34a; }
+    .btn-p.all:hover { background: #15803d; }
+
+    .sheet-page {
+      max-width: 900px;
+      margin: 0 auto 24px auto;
+      background: #fff;
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      padding: 22px 26px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    .header-table {
+      width: 100%;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+    .header-logo {
+      font-size: 1.8rem;
+      vertical-align: middle;
+      width: 45px;
+    }
+    .header-title h1 {
+      font-size: 1.15rem;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .header-title p {
+      font-size: 0.8rem;
+      color: #475569;
+      font-weight: 600;
+    }
+
+    .team-meta-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 10px;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      font-size: 0.85rem;
+    }
+    .meta-line {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+    .dots {
+      flex: 1;
+      border-bottom: 1px dotted #94a3b8;
+      height: 16px;
+    }
+
+    .roles-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 14px;
+      font-size: 0.82rem;
+    }
+    .roles-table th, .roles-table td {
+      border: 1px solid #cbd5e1;
+      padding: 5px 8px;
+      text-align: left;
+    }
+    .roles-table th {
+      background: #e2e8f0;
+      color: #1e293b;
+      font-weight: 700;
+    }
+
+    .section-banner {
+      background: var(--primary);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 0.92rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin: 14px 0 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .section-banner.green { background: #166534; }
+    .section-banner.purple { background: #6b21a8; }
+
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .grid-3col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .case-card {
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 9px 12px;
+      background: #ffffff;
+      font-size: 0.82rem;
+    }
+    .case-card h3 {
+      font-size: 0.88rem;
+      color: var(--primary);
+      margin-bottom: 4px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 3px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .secret-slot {
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      color: #92400e;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+    .rule-note {
+      font-size: 0.78rem;
+      color: #475569;
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+
+    .code-final-banner {
+      background: #eff6ff;
+      border: 2px dashed var(--primary);
+      border-radius: 8px;
+      padding: 12px;
+      margin-top: 14px;
+      text-align: center;
+    }
+    .code-final-banner h2 {
+      font-size: 0.95rem;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .code-slots-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin: 8px 0;
+    }
+    .c-slot {
+      width: 44px;
+      height: 48px;
+      border: 2px solid var(--primary);
+      border-radius: 6px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--primary);
+    }
+    .code-warning {
+      font-size: 0.76rem;
+      color: #b91c1c;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .writing-lines {
+      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .write-line {
+      border-bottom: 1px dotted #94a3b8;
+      height: 18px;
+    }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .no-print-bar { display: none !important; }
+      .sheet-page {
+        box-shadow: none;
+        border: 1px solid #334155;
+        margin: 0;
+        padding: 18px 20px;
+        page-break-after: always;
+      }
+      .sheet-page:last-child {
+        page-break-after: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRE DE COMMANDE IMPRESSION (ÉCRAN SEULEMENT) -->
+  <div class="no-print-bar">
+    <div>
+      <strong>Collège de Biguglia • Fiche de Route d'Îlot</strong>
+      <span style="font-size: 0.85rem; opacity: 0.85;">(Imprimez le dossier complet ou le parcours attribué)</span>
+    </div>
+    <div class="print-actions">
+      <button class="btn-p all" onclick="window.print()">🖨️ Tout Imprimer (3 Pages)</button>
+      <button class="btn-p" onclick="printOnly('p1')">📄 Parcours 1</button>
+      <button class="btn-p" onclick="printOnly('p2')">📄 Parcours 2</button>
+      <button class="btn-p" onclick="printOnly('p3')">📄 Parcours 3</button>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PAGE 1 : PARCOURS 1 (OPÉRATION STOP-MEUTE • LES 4 CLÉS)
+       ========================================================================= -->
+  <div class="sheet-page" id="sheet-p1">
+    <table class="header-table">
+      <tr>
+        <td class="header-logo">⚖️</td>
+        <td class="header-title">
+          <h1>Collège de Biguglia • Cellule Citoyenne pHARe (4ème)</h1>
+          <p>Dossier de Mission d'Îlot — Parcours 1 : « Opération Stop-Meute » (Escape Game)</p>
+        </td>
+      </tr>
+    </table>
+
+    <div class="team-meta-grid">
+      <div>
+        <div class="meta-line"><strong>Nom de la Brigade :</strong> <span class="dots"></span></div>
+        <div class="meta-line"><strong>Membres du groupe :</strong> <span class="dots"></span></div>
+      </div>
+      <div>
+        <div class="meta-line"><strong>Classe :</strong> 4ème .......</div>
+        <div class="meta-line"><strong>Chrono départ :</strong> 40:00</div>
+      </div>
+    </div>
+
+    <table class="roles-table">
+      <tr>
+        <th>Rôle dans l'îlot</th>
+        <th>Élève responsable</th>
+        <th>Mission clé</th>
+      </tr>
+      <tr>
+        <td><strong>Capitaine / Chrono</strong></td>
+        <td>...................................................</td>
+        <td>Surveille le compte à rebours, répartit les lectures et évite les conflits.</td>
+      </tr>
+      <tr>
+        <td><strong>Scribe / Dépositaire</strong></td>
+        <td>...................................................</td>
+        <td><strong>Garde les 4 chiffres secrets.</strong> Ne les perd sous aucun prétexte !</td>
+      </tr>
+      <tr>
+        <td><strong>Analyste Juridique</strong></td>
+        <td>...................................................</td>
+        <td>Vérifie la règle de droit (3 critères, loi 2022, ITT, circonstances aggravantes).</td>
+      </tr>
+      <tr>
+        <td><strong>Porte-parole Citoyen</strong></td>
+        <td>...................................................</td>
+        <td>Présentera la conclusion de la brigade lors du débriefing de fin d'heure.</td>
+      </tr>
+    </table>
+
+    <div class="section-banner">
+      <span>🔐 DÉCODAGE DES 4 ÉNIGMES (OBTENTION DES 4 CHIFFRES SECRETS)</span>
+      <span style="font-size: 0.8rem;">Objectif : Déverrouiller le smartphone</span>
+    </div>
+
+    <div class="grid-2col">
+      <!-- Énigme 1 -->
+      <div class="case-card">
+        <h3>
+          <span>1. Tri des 6 Faits</span>
+          <span class="secret-slot">Chiffre 1 = [ ...... ]</span>
+        </h3>
+        <p class="rule-note"><strong>Critères légaux :</strong> Violence + Répétition + Isolement/Domination.</p>
+        <p style="font-size: 0.78rem; margin-top: 3px;">Cochez les situations relevant juridiquement du harcèlement :</p>
+        <div style="font-size: 0.78rem; margin-top: 3px;">
+          [ ] A. Dispute ballon récré &nbsp; [ ] B. Blocage escalier 2 mois<br>
+          [ ] C. Groupe Snap photo Hugo &nbsp; [ ] D. Tristesse mauvaise note<br>
+          [ ] E. Sac caché cantine &nbsp; [ ] F. Insulte match foot
+        </div>
+        <p style="font-size: 0.75rem; color: #64748b; margin-top: 4px;">Nombre de situations valides = 1er chiffre.</p>
+      </div>
+
+      <!-- Énigme 2 -->
+      <div class="case-card">
+        <h3>
+          <span>2. Loi de Mars 2022</span>
+          <span class="secret-slot">Chiffre 2 = [ ...... ]</span>
+        </h3>
+        <p class="rule-note"><strong>Code pénal :</strong> Délit spécifique reconnu par la loi.</p>
+        <div style="font-size: 0.78rem; margin-top: 3px;">
+          • Cas général (ITT &le; 8j) : <strong>X =</strong> [ ..... ] ans de prison.<br>
+          • Cas aggravation (suicide / tentative) : <strong>Z =</strong> [ ..... ] ans de prison.
+        </div>
+        <p style="font-size: 0.76rem; font-weight: 700; margin-top: 4px; color: var(--primary);">
+          Calcul de déverrouillage : (Z - X) - 3 = [ ...... ]
+        </p>
+      </div>
+
+      <!-- Énigme 3 -->
+      <div class="case-card">
+        <h3>
+          <span>3. Vidéo « Des Héros »</span>
+          <span class="secret-slot">Chiffre 3 = [ ...... ]</span>
+        </h3>
+        <p class="rule-note"><strong>Court-métrage :</strong> Observation de l'attitude d'Anthony et Enzo.</p>
+        <p style="font-size: 0.78rem; margin-top: 3px;">
+          Quel comportement transforme un témoin passif en acteur protecteur ?<br>
+          <em>Notez le numéro de la réponse validée sur l'application :</em>
+        </p>
+        <div class="writing-lines">
+          <div class="write-line"></div>
+        </div>
+      </div>
+
+      <!-- Énigme 4 -->
+      <div class="case-card">
+        <h3>
+          <span>4. Fréquence 3018</span>
+          <span class="secret-slot">Chiffre 4 = [ ...... ]</span>
+        </h3>
+        <p class="rule-note"><strong>Ligne Nationale d'Urgence :</strong> Gratuite, anonyme et confidentielle.</p>
+        <p style="font-size: 0.78rem; margin-top: 3px;">
+          Composez le numéro officiel sur le combiné téléphonique interactif.<br>
+          <em>Dernier chiffre de la ligne d'urgence = 4ème chiffre du code.</em>
+        </p>
+        <div style="font-size: 0.78rem; font-weight: 700; color: var(--accent-green); margin-top: 4px;">
+          Numéro composé : [ 3 ] [ 0 ] [ 1 ] [ <strong>8</strong> ]
+        </div>
+      </div>
+    </div>
+
+    <!-- Encadré Code Secret -->
+    <div class="code-final-banner">
+      <h2>🔐 CODE SECRET FINAL À SAISIR SUR LE SMARTPHONE</h2>
+      <div class="code-slots-row">
+        <div class="c-slot">?</div>
+        <div class="c-slot">?</div>
+        <div class="c-slot">?</div>
+        <div class="c-slot">?</div>
+      </div>
+      <p class="code-warning">
+        ⚠️ ATTENTION CONTRAINTE : Ce code ne sera PAS réaffiché sur le téléphone ! Le Scribe doit l'avoir noté ici avant de lancer la saisie finale sur le digicode numérique.
+      </p>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PAGE 2 : PARCOURS 2 (CELLULE pHARe • 3 DOSSIERS COMPLEXES & ZONES GRISES)
+       ========================================================================= -->
+  <div class="sheet-page" id="sheet-p2">
+    <table class="header-table">
+      <tr>
+        <td class="header-logo">⚖️</td>
+        <td class="header-title">
+          <h1>Collège de Biguglia • Cellule Citoyenne pHARe (4ème)</h1>
+          <p>Dossier de Mission d'Îlot — Parcours 2 : « Instruction des 3 Zones Grises »</p>
+        </td>
+      </tr>
+    </table>
+
+    <div class="team-meta-grid">
+      <div>
+        <div class="meta-line"><strong>Nom de la Brigade :</strong> <span class="dots"></span></div>
+        <div class="meta-line"><strong>Juristes rapporteurs :</strong> <span class="dots"></span></div>
+      </div>
+      <div>
+        <div class="meta-line"><strong>Classe :</strong> 4ème .......</div>
+        <div class="meta-line"><strong>Parcours :</strong> Zones Grises pHARe</div>
+      </div>
+    </div>
+
+    <div class="section-banner green">
+      <span>📂 INSTRUCTION CONTRADICTOIRE DES 3 DOSSIERS DE CRISE</span>
+      <span style="font-size: 0.8rem;">Sortir du schéma binaire « méchant vs gentil »</span>
+    </div>
+
+    <!-- Dossier 1 -->
+    <div class="case-card" style="margin-bottom: 10px;">
+      <h3>
+        <span>Dossier 1 : Noah (Mème EPS & Sticker WhatsApp)</span>
+        <span class="secret-slot">Effet de Meute</span>
+      </h3>
+      <p style="font-size: 0.78rem; color: #475569;">
+        <strong>Faits :</strong> Photo en rafale pendant EPS &rarr; sticker « Noah bug système » &rarr; diffusion inter-collèges &rarr; rires en classe &rarr; évitement infirmerie.
+      </p>
+      <div style="font-size: 0.78rem; margin-top: 4px;">
+        <strong>1. Qualification juridique :</strong> Pourquoi y a-t-il harcèlement alors que Yanis n'a posté qu'une seule fois ?<br>
+        <em>Notion de répétition par le relais collectif et d'impact destructeur sur la victime.</em>
+      </div>
+      <div class="writing-lines">
+        <div class="write-line"></div>
+      </div>
+      <div style="font-size: 0.78rem; margin-top: 4px;">
+        <strong>2. Responsabilités :</strong> Qui risque le plus entre Yanis (photo), Sarah (sticker) et Kylian (relais extérieur) ?
+      </div>
+      <div class="writing-lines">
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <!-- Dossier 2 -->
+    <div class="case-card" style="margin-bottom: 10px;">
+      <h3>
+        <span>Dossier 2 : Léna (Rumeur & Ghosting à la Cantine)</span>
+        <span class="secret-slot">Exclusion Silencieuse</span>
+      </h3>
+      <p style="font-size: 0.78rem; color: #475569;">
+        <strong>Faits :</strong> Dispute de rentrée &rarr; fausse accusation de vol sur Instagram (« Amis proches ») &rarr; silence glacial &rarr; tables de cantine bloquées pendant 3 semaines.
+      </p>
+      <div style="font-size: 0.78rem; margin-top: 4px;">
+        <strong>1. Qualification juridique :</strong> Peut-il y avoir harcèlement sans coups ni insultes directes ?<br>
+        <em>Harcèlement moral et relationnel : la diffamation et l'isolement organisé constituent une violence délictuelle.</em>
+      </div>
+      <div class="writing-lines">
+        <div class="write-line"></div>
+      </div>
+      <div style="font-size: 0.78rem; margin-top: 4px;">
+        <strong>2. Action d'un ami témoin :</strong> Comment briser l'omerta sans être pris pour cible ?
+      </div>
+      <div class="writing-lines">
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <!-- Dossier 3 -->
+    <div class="case-card" style="margin-bottom: 10px;">
+      <h3>
+        <span>Dossier 3 : Adam & Mathis (Riposte Hors-la-Loi & Doxxing NGL)</span>
+        <span class="secret-slot">L'Illégalité de la Riposte</span>
+      </h3>
+      <p style="font-size: 0.78rem; color: #475569;">
+        <strong>Faits :</strong> Harcelé depuis des semaines &rarr; Adam filme Mathis en pleurs aux toilettes et publie son adresse postale (« doxxing ») sur un lien NGL anonyme.
+      </p>
+      <div style="font-size: 0.78rem; margin-top: 4px;">
+        <strong>1. La légitime défense existe-t-elle en ligne ?</strong> Pourquoi la justice condamne-t-elle la riposte d'Adam ?<br>
+        <em>L'atteinte à l'intimité et la mise en danger physique (adresse) sont des infractions pénales autonomes.</em>
+      </div>
+      <div class="writing-lines">
+        <div class="write-line"></div>
+      </div>
+      <div style="font-size: 0.78rem; margin-top: 4px;">
+        <strong>2. L'anonymat NGL protège-t-il vraiment ?</strong>
+      </div>
+      <div class="writing-lines">
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <!-- Cadre de Synthèse pour le débat -->
+    <div class="code-final-banner" style="background: #f0fdf4; border-color: #16a34a;">
+      <h2 style="color: #166534;">🎤 SYNTHÈSE DE LA BRIGADE POUR LE DÉBAT CONTRADICTOIRE (15 MIN)</h2>
+      <p style="font-size: 0.78rem; color: #166534;">
+        Rédigez la règle d'or citoyenne que votre porte-parole présentera devant la classe :
+      </p>
+      <div class="writing-lines" style="margin-top: 8px;">
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PAGE 3 : PARCOURS 3 (L'ANATOMIE DU PIÈGE • « LE 7ème REGARD »)
+       ========================================================================= -->
+  <div class="sheet-page" id="sheet-p3">
+    <table class="header-table">
+      <tr>
+        <td class="header-logo">👁️</td>
+        <td class="header-title">
+          <h1>Collège de Biguglia • Cellule Citoyenne pHARe (4ème)</h1>
+          <p>Dossier de Mission d'Îlot — Parcours 3 : « L'Anatomie du Piège (Le 7ème Regard) »</p>
+        </td>
+      </tr>
+    </table>
+
+    <div class="team-meta-grid">
+      <div>
+        <div class="meta-line"><strong>Nom de la Brigade :</strong> <span class="dots"></span></div>
+        <div class="meta-line"><strong>Scénaristes de l'îlot :</strong> <span class="dots"></span></div>
+      </div>
+      <div>
+        <div class="meta-line"><strong>Classe :</strong> 4ème .......</div>
+        <div class="meta-line"><strong>Support :</strong> Affiche Collège</div>
+      </div>
+    </div>
+
+    <div class="section-banner purple">
+      <span>🖼️ MODULE 1 : DÉCRYPTAGE SÉMIOLOGIQUE DES 4 INDICES DE L'AFFICHE</span>
+      <span style="font-size: 0.8rem;">10 minutes en binômes / îlots</span>
+    </div>
+
+    <div class="grid-2col" style="margin-bottom: 12px;">
+      <div class="case-card">
+        <h3>1. Les 6 Yeux (3 haut, 3 bas)</h3>
+        <p class="rule-note">Pourquoi avoir cadré 6 yeux différents plutôt qu'un seul visage de harceleur ?</p>
+        <div class="writing-lines" style="margin-top: 6px;">
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <h3>2. Les Mains sur les Yeux</h3>
+        <p class="rule-note">Quelle double lecture peut-on faire de ce geste central ?</p>
+        <div class="writing-lines" style="margin-top: 6px;">
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <h3>3. Les Lettres Dépareillées</h3>
+        <p class="rule-note">Pourquoi avoir écrit « h A R C e L E M e n T » avec des lettres de styles et de tailles variés ?</p>
+        <div class="writing-lines" style="margin-top: 6px;">
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <h3>4. « L'Amitié est-elle la clé ? »</h3>
+        <p class="rule-note">Quelle est la limite de cette idée affichée en haut ? Pourquoi l'amitié seule ne suffit pas toujours ?</p>
+        <div class="writing-lines" style="margin-top: 6px;">
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-banner purple">
+      <span>✍️ MODULE 2 : ATELIER « LE 7ème REGARD » (ÉCRITURE RÉALISTE)</span>
+      <span style="font-size: 0.8rem;">20 minutes en îlots</span>
+    </div>
+
+    <div class="case-card" style="margin-bottom: 12px;">
+      <p style="font-size: 0.8rem; margin-bottom: 6px;">
+        <strong>Numéro du Regard choisi par votre îlot :</strong> [ &nbsp; ] Œil 1 &nbsp; [ &nbsp; ] Œil 2 &nbsp; [ &nbsp; ] Œil 3 &nbsp; [ &nbsp; ] Œil 4 &nbsp; [ &nbsp; ] Œil 5 &nbsp; [ &nbsp; ] Œil 6
+      </p>
+
+      <div style="font-size: 0.8rem; margin-top: 6px;">
+        <strong>Étape 1 : Identité & lien avec la victime</strong> (Définissez qui est cet élève et sa relation avec la fille au centre)
+      </div>
+      <div class="writing-lines">
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+
+      <div style="font-size: 0.8rem; margin-top: 8px;">
+        <strong>Étape 2 : Le point de bascule (Le Déclic)</strong> (Décrivez le détail ou l'événement précis qui provoque la prise de conscience)
+      </div>
+      <div class="writing-lines">
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+
+      <div style="font-size: 0.8rem; margin-top: 8px;">
+        <strong>Étape 3 : La stratégie réaliste sous 24h</strong> (Détaillez son plan d'action concret sans héroïsme naïf)
+      </div>
+      <div class="writing-lines">
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <!-- Restitution Orale -->
+    <div class="code-final-banner" style="background: #faf5ff; border-color: #9333ea;">
+      <h2 style="color: #6b21a8;">📢 RESTITUTION EN CLASSE ENTIÈRE : « CHANGER L'AFFICHE » (10 MIN)</h2>
+      <p style="font-size: 0.78rem; color: #6b21a8;">
+        Critères pour le vote de la classe (vote à main levée) :<br>
+        <strong>1. Réalisme au collège</strong> (Est-ce faisable sans représailles ?) &bull; 
+        <strong>2. Solidarité concrète</strong> (La victime n'est plus seule) &bull; 
+        <strong>3. Recours aux adultes / 3018</strong>
+      </p>
+    </div>
+  </div>
+
+    <script>
+    function printOnly(trackId) {
+      document.querySelectorAll('.sheet-page').forEach(page => {
+        if (page.id === 'sheet-' + trackId) {
+          page.style.display = 'block';
+        } else {
+          page.style.display = 'none';
+        }
+      });
+      window.print();
+      // Restore view
+      setTimeout(() => {
+        document.querySelectorAll('.sheet-page').forEach(page => page.style.display = 'block');
+      }, 1000);
+    }
+  </script>
+
+</body>
+</html>

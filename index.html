@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plateforme de Lutte contre le Harcèlement | Collège de Biguglia (4ème)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= HEADER / BARRE DE MISSION ================= -->
+  <header id="mission-bar">
+    <div class="header-left">
+      <div class="logo-badge">
+        <span class="icon">⚖️</span>
+        <div>
+          <span class="title">COLLÈGE DE BIGUGLIA</span>
+          <span class="subtitle-badge" id="current-track-badge">Plateforme Citoyenne pHARe • 4ème</span>
+        </div>
+      </div>
+      <div class="team-tag" id="display-team-name">Brigade : Non assignée</div>
+    </div>
+
+    <div class="header-center">
+      <div class="timer-container" id="timer-box">
+        <span class="timer-icon">⏱️</span>
+        <span class="timer-label">DÉCOMPTE D'ACTIVITÉ :</span>
+        <span class="timer-display" id="time-display">40:00</span>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <button id="btn-switch-track" class="btn-icon" title="Changer de parcours pédagogique">🔀 Parcours</button>
+      <button id="btn-sound" class="btn-icon" title="Activer/Désactiver le son">🔊</button>
+      <button id="btn-teacher" class="btn-icon" title="Espace Enseignant / Animation">⚙️ Prof</button>
+      <a href="fiche_eleve.html" target="_blank" class="btn-icon doc-link" title="Dossier d'instruction d'îlot à imprimer">📋 Dossier Équipe</a>
+      <a href="guide_enseignant.html" target="_blank" class="btn-icon doc-link" title="Guide pédagogique & Différenciation">📄 Guide Prof</a>
+    </div>
+  </header>
+
+  <!-- ================= BANDEAU DE STATUT GLOBAL ================= -->
+  <section id="code-status-bar">
+    <div class="code-status-wrapper">
+      <div class="mission-status-track">
+        <span class="status-legend" id="status-legend-text">PARCOURS ACTIF :</span>
+        <div class="step-badges" id="dynamic-step-badges">
+          <!-- Les badges s'adaptent selon le parcours sélectionné -->
+        </div>
+      </div>
+
+      <div class="action-phone-wrap" id="wrap-keypad-btn">
+        <button id="btn-open-keypad" class="btn-pulse" disabled>
+          📱 Accéder au Digicode Final
+        </button>
+      </div>
+    </div>
+
+    <div class="threat-progress-bar">
+      <div class="threat-label">
+        <span id="threat-bar-title">⚠️ Menace : Compte à rebours avant publication automatique sur <code>@biguglia_gossip_2b</code></span>
+        <span id="threat-percentage">Progression : 5%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="threat-progress-fill" style="width: 5%;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ÉCRAN D'ACCUEIL : SÉLECTION DES 3 PARCOURS (DIFFÉRENCIATION) ================= -->
+  <div id="screen-intro" class="screen-view active">
+    <div class="intro-card">
+      <div class="terminal-header">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <div class="terminal-title">COLLEGE_BIGUGLIA // DISPOSITIF_pHARE // 3_PARCOURS_DIFFERENCIES</div>
+      </div>
+      
+      <div class="intro-body">
+        <div class="alert-banner">
+          <span class="alert-icon">🛡️</span>
+          <div>
+            <h2>COLLÈGE DE BIGUGLIA : DISPOSITIF ANTI-HARCÈLEMENT 4ème</h2>
+            <p class="subtitle">Atelier citoyen en îlots de 4-5 élèves • 3 parcours au choix selon les consignes du professeur</p>
+          </div>
+        </div>
+
+        <div class="mission-briefing">
+          <p><strong>Orientation pédagogique :</strong></p>
+          <p>
+            Bienvenue dans le centre de ressources de la cellule pHARe du collège de Biguglia. 
+            Votre professeur orientera votre îlot vers <strong>l'un des 3 parcours d'apprentissage</strong> ci-dessous, 
+            calibrés chacun pour une séance complète de <strong>35 à 40 minutes</strong> :
+          </p>
+        </div>
+
+        <!-- SÉLECTEUR DES 3 PARCOURS -->
+        <div class="track-selection-grid">
+          
+          <!-- Parcours 1 -->
+          <div class="track-card" data-track="1">
+            <div class="track-badge">PARCOURS 1 • DÉFI 4 CLÉS</div>
+            <h3>Opération Stop-Meute (Escape Game)</h3>
+            <p class="track-desc">
+              Un escape game numérique d'investigation en 4 énigmes pour décrypter les 3 critères légaux, la loi 2022, le court-métrage « Des Héros » et la ligne 3018 afin de déverrouiller le smartphone.
+            </p>
+            <div class="track-tags">
+              <span>⏱️ 35-40 min</span>
+              <span>🎮 Énigmes interactives</span>
+              <span>📱 Digicode final (3428)</span>
+            </div>
+            <button type="button" class="btn-select-track" data-track="1">Choisir le Parcours 1 &rarr;</button>
+          </div>
+
+          <!-- Parcours 2 -->
+          <div class="track-card" data-track="2">
+            <div class="track-badge">PARCOURS 2 • ZONES GRISES</div>
+            <h3>Cellule pHARe (3 Dossiers Complexes)</h3>
+            <p class="track-desc">
+              Une instruction juridique approfondie pour sortir du schéma binaire « méchant/gentil » : mème EPS et meute (Noah), rumeur et ghosting à la cantine (Léna), riposte illégale par doxxing (Adam).
+            </p>
+            <div class="track-tags">
+              <span>⏱️ 35-40 min</span>
+              <span>⚖️ Droit & Éthique</span>
+              <span>🎤 Débat contradictoire</span>
+            </div>
+            <button type="button" class="btn-select-track" data-track="2">Choisir le Parcours 2 &rarr;</button>
+          </div>
+
+          <!-- Parcours 3 -->
+          <div class="track-card highlighted" data-track="3">
+            <div class="track-badge pulse">PARCOURS 3 • NOUVEAUTÉ</div>
+            <h3>L'Anatomie du Piège (« Le 7ème Regard »)</h3>
+            <p class="track-desc">
+              Décryptage sémiologique de l'affiche réelle créée par les élèves du collège (6 regards, geste central, lettres dépareillées), suivi de l'atelier d'écriture collaborative d'une scène réaliste sans héroïsme naïf.
+            </p>
+            <div class="track-tags">
+              <span>⏱️ 35-40 min</span>
+              <span>🖼️ Décryptage visuel</span>
+              <span>✍️ Atelier d'écriture</span>
+            </div>
+            <button type="button" class="btn-select-track btn-highlight" data-track="3">Choisir le Parcours 3 &rarr;</button>
+          </div>
+
+        </div>
+
+        <!-- FORMULAIRE D'ÉQUIPE -->
+        <div class="intro-form" style="margin-top: 24px;">
+          <div class="input-group">
+            <label for="team-name-input">Nom de votre brigade (ex : Brigade pHARe 4B, Les Sentinelles de Biguglia...) :</label>
+            <input type="text" id="team-name-input" placeholder="Nom de l'équipe" maxlength="35" value="Brigade pHARe Biguglia">
+          </div>
+          <div class="selected-track-display">
+            Parcours actuellement sélectionné : <strong id="lbl-selected-track">Parcours 3 : L'Anatomie du Piège (« Le 7ème Regard »)</strong>
+          </div>
+          <div class="intro-actions">
+            <button id="btn-start-game" class="btn-primary btn-large">
+              🚀 LANCER L'ACTIVITÉ CHOISIE (40:00)
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= ÉCRAN PRINCIPAL DU JEU ================= -->
+  <main id="screen-game" class="screen-view">
+    
+    <!-- Navigation des onglets (s'adapte au parcours sélectionné) -->
+    <nav class="enigmas-nav" id="main-nav-tabs">
+      <!-- Les onglets sont injectés ou affichés dynamiquement selon le parcours -->
+    </nav>
+
+    <!-- CONTENEUR DES PANNEAUX DE CONTENU -->
+    <div class="enigmas-content">
+
+      <!-- ==========================================================================
+           CONTENUS DU PARCOURS 1 (ESCAPE GAME • LES 4 CLÉS)
+           ========================================================================== -->
+
+      <!-- Énigme 1.1 : Le Tri des Faits -->
+      <section id="tab-p1-enigma-1" class="enigma-pane">
+        <div class="pane-header">
+          <div>
+            <span class="pane-tag">Parcours 1 • Étape 1 sur 4 • Obtention du 1er chiffre</span>
+            <h2>Énigme 1 : L'Audit des Signalements au Collège</h2>
+          </div>
+          <div class="role-hint-pill">🔍 Analyse des 3 critères légaux</div>
+        </div>
+
+        <div class="mission-instructions">
+          <p>
+            <strong>Consigne de la mission :</strong> La Vie Scolaire du collège de Biguglia vous soumet 6 signalements récents. 
+            Analysez chaque situation pour déterminer si elle relève <strong>juridiquement du harcèlement scolaire</strong> ou d'un conflit ponctuel / événement isolé.
+          </p>
+          <div class="rule-reminder">
+            🔔 <strong>Rappel officiel :</strong> Pour qualifier un harcèlement, il faut <u>impérativement la présence des 3 critères</u> :
+            <strong>Violence</strong> (physique, verbale ou psychologique) + <strong>Répétition</strong> dans la durée + <strong>Rapport de domination & Isolement</strong>.
+          </div>
+          <p style="margin-top: 10px;">
+            <strong>Clé du code :</strong> Le 1er chiffre correspond au <strong>nombre total de situations constituant un harcèlement scolaire avéré</strong>.
+          </p>
+        </div>
+
+        <div class="cards-grid" id="grid-facts">
+          <!-- Carte A -->
+          <div class="fact-card" data-id="A" data-harcelement="false">
+            <div class="card-letter">Signalement A</div>
+            <div class="card-source">Lieu : Cour de récréation du collège</div>
+            <p class="card-text">Léo et Max se disputent violemment lors d'une partie de ballon à la récréation de 10h. Des insultes sont échangées. Le lendemain matin, ils se serrent la main et jouent de nouveau ensemble.</p>
+            <div class="card-choices">
+              <button type="button" class="btn-choice" data-val="true">🔴 Harcèlement scolaire</button>
+              <button type="button" class="btn-choice" data-val="false">🟢 Conflit ponctuel / Non</button>
+            </div>
+            <div class="card-feedback"></div>
+          </div>
+
+          <!-- Carte B -->
+          <div class="fact-card" data-id="B" data-harcelement="true">
+            <div class="card-letter">Signalement B</div>
+            <div class="card-source">Lieu : Grand escalier du bâtiment principal</div>
+            <p class="card-text">Depuis deux mois, chaque matin, trois élèves bloquent délibérément le passage de Samia dans les escaliers, se moquent de ses vêtements et incitent les autres à rire d'elle.</p>
+            <div class="card-choices">
+              <button type="button" class="btn-choice" data-val="true">🔴 Harcèlement scolaire</button>
+              <button type="button" class="btn-choice" data-val="false">🟢 Conflit ponctuel / Non</button>
+            </div>
+            <div class="card-feedback"></div>
+          </div>
+
+          <!-- Carte C -->
+          <div class="fact-card" data-id="C" data-harcelement="true">
+            <div class="card-letter">Signalement C</div>
+            <div class="card-source">Lieu : Groupe privé Snapchat / Instagram</div>
+            <p class="card-text">Sur une story partagée avec 40 élèves de la classe, un montage ridicule de la photo d'Hugo est republié chaque soir avec des légendes dégradantes que toute la classe commente.</p>
+            <div class="card-choices">
+              <button type="button" class="btn-choice" data-val="true">🔴 Harcèlement scolaire</button>
+              <button type="button" class="btn-choice" data-val="false">🟢 Conflit ponctuel / Non</button>
+            </div>
+            <div class="card-feedback"></div>
+          </div>
+
+          <!-- Carte D -->
+          <div class="fact-card" data-id="D" data-harcelement="false">
+            <div class="card-letter">Signalement D</div>
+            <div class="card-source">Lieu : Banc sous le préau</div>
+            <p class="card-text">Chloé a reçu une mauvaise note à son évaluation de mathématiques. Elle pleure seule sur un banc pendant la récréation sans que personne ne vienne lui parler.</p>
+            <div class="card-choices">
+              <button type="button" class="btn-choice" data-val="true">🔴 Harcèlement scolaire</button>
+              <button type="button" class="btn-choice" data-val="false">🟢 Conflit ponctuel / Non</button>
+            </div>
+            <div class="card-feedback"></div>
+          </div>
+
+          <!-- Carte E -->
+          <div class="fact-card" data-id="E" data-harcelement="true">
+            <div class="card-letter">Signalement E</div>
+            <div class="card-source">Lieu : Réfectoire / Cantine du collège</div>
+            <p class="card-text">Tous les midis depuis la rentrée, deux élèves cachent le sac de Tom à la cantine, renversent son plateau et l'empêchent de s'asseoir à une table pour l'isoler.</p>
+            <div class="card-choices">
+              <button type="button" class="btn-choice" data-val="true">🔴 Harcèlement scolaire</button>
+              <button type="button" class="btn-choice" data-val="false">🟢 Conflit ponctuel / Non</button>
+            </div>
+            <div class="card-feedback"></div>
+          </div>
+
+          <!-- Carte F -->
+          <div class="fact-card" data-id="F" data-harcelement="false">
+            <div class="card-letter">Signalement F</div>
+            <div class="card-source">Lieu : SMS privé le mercredi après-midi</div>
+            <p class="card-text">Après une défaite lors d'une rencontre sportive UNSS, un élève envoie un SMS furieux avec une insulte à un camarade. Aucun autre message n'est échangé par la suite.</p>
+            <div class="card-choices">
+              <button type="button" class="btn-choice" data-val="true">🔴 Harcèlement scolaire</button>
+              <button type="button" class="btn-choice" data-val="false">🟢 Conflit ponctuel / Non</button>
+            </div>
+            <div class="card-feedback"></div>
+          </div>
+        </div>
+
+        <div class="enigma-footer">
+          <div class="footer-count">
+            Situations de harcèlement retenues : <span id="e1-count-selected">0</span> sur 6
+          </div>
+          <button id="btn-validate-e1" class="btn-primary">
+            🔍 Valider l'analyse et obtenir le 1er chiffre
+          </button>
+        </div>
+
+        <div id="e1-result-box" class="solution-box hidden"></div>
+      </section>
+
+      <!-- Énigme 1.2 : Le Décodage de la Loi 2022 -->
+      <section id="tab-p1-enigma-2" class="enigma-pane">
+        <div class="pane-header">
+          <div>
+            <span class="pane-tag">Parcours 1 • Étape 2 sur 4 • Obtention du 2ème chiffre</span>
+            <h2>Énigme 2 : Le Dossier Judiciaire & La Loi de 2022</h2>
+          </div>
+          <div class="role-hint-pill">⚖️ Sanctions pénales & Calcul crypté</div>
+        </div>
+
+        <div class="mission-instructions">
+          <p>
+            <strong>Consigne de la mission :</strong> Depuis mars 2022, le harcèlement scolaire est un <strong>délit pénal</strong>.
+            Retrouvez les sanctions exactes de l'article 222-33-2-3 du Code pénal, puis résolvez l'équation pour extraire le 2ème chiffre.
+          </p>
+        </div>
+
+        <div class="legal-scroll">
+          <div class="law-title">EXTRAIT DU CODE PÉNAL FRANÇAIS (ART. 222-33-2-3)</div>
+          
+          <div class="law-sentence">
+            <p>
+              « Les faits de harcèlement scolaire sont punis de 
+              <select id="val-X" class="law-select">
+                <option value="">[ X ]</option>
+                <option value="1">1 an</option>
+                <option value="2">2 ans</option>
+                <option value="3">3 ans</option>
+                <option value="5">5 ans</option>
+                <option value="7">7 ans</option>
+              </select>
+              <strong>d'emprisonnement</strong> et de 
+              <select id="val-Y" class="law-select">
+                <option value="">[ Y ]</option>
+                <option value="15">15</option>
+                <option value="30">30</option>
+                <option value="45">45</option>
+                <option value="75">75</option>
+              </select>
+              <strong>000 € d'amende</strong> lorsque les faits ont causé une incapacité totale de travail (ITT) inférieure ou égale à 8 jours. »
+            </p>
+          </div>
+
+          <div class="law-sentence highlight">
+            <p>
+              « En cas de suicide ou de tentative de suicide de la victime harcelée, la peine maximale encourue passe à 
+              <select id="val-Z" class="law-select">
+                <option value="">[ Z ]</option>
+                <option value="5">5 ans</option>
+                <option value="7">7 ans</option>
+                <option value="10">10 ans</option>
+                <option value="15">15 ans</option>
+                <option value="20">20 ans</option>
+              </select>
+              <strong>de réclusion criminelle</strong> et 
+              <select id="val-W" class="law-select">
+                <option value="">[ W ]</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="150">150</option>
+                <option value="200">200</option>
+              </select>
+              <strong>000 € d'amende</strong>. »
+            </p>
+          </div>
+        </div>
+
+        <div class="calculation-box">
+          <div class="formula-banner">
+            <h3>🔐 CLÉ DE CALCUL DU 2ÈME CHIFFRE :</h3>
+            <div class="math-formula">Chiffre 2 = ( Z − X ) − 3</div>
+            <p class="formula-desc">Prenez <strong>Z</strong> (suicide) et <strong>X</strong> (ITT &le; 8j), faites la différence, puis soustrayez 3.</p>
+          </div>
+
+          <div class="calc-input-wrapper">
+            <label for="e2-calc-result">Résultat du calcul (Chiffre n°2) :</label>
+            <input type="number" id="e2-calc-result" min="0" max="9" placeholder="?" class="calc-input">
+            <button id="btn-validate-e2" class="btn-primary">⚖️ Valider le décodage pénal</button>
+          </div>
+        </div>
+
+        <div id="e2-result-box" class="solution-box hidden"></div>
+      </section>
+
+      <!-- Énigme 1.3 : La Vidéo « Des Héros » -->
+      <section id="tab-p1-enigma-3" class="enigma-pane">
+        <div class="pane-header">
+          <div>
+            <span class="pane-tag">Parcours 1 • Étape 3 sur 4 • Obtention du 3ème chiffre</span>
+            <h2>Énigme 3 : Analyse Vidéo du Court-Métrage « Des Héros »</h2>
+          </div>
+          <div class="role-hint-pill">🎬 Psychologie du témoin & Meute</div>
+        </div>
+
+        <div class="mission-instructions">
+          <p>
+            <strong>Consigne :</strong> Visionnez le court-métrage officiel <em>« Des Héros »</em> ci-dessous et observez la bascule d'Anthony face à Enzo.
+          </p>
+        </div>
+
+        <div class="video-investigation-box">
+          <div class="video-container">
+            <video id="enigma-video-player" controls style="width: 100%; border-radius: 10px; background: #000;">
+              <source src="assets/video_des_heros.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-guide-notes">
+            <h4>🎯 3 Questions d'observation :</h4>
+            <ol>
+              <li>Pourquoi Anthony rit-il avec le groupe au début ?</li>
+              <li>Qu'est-ce qui donne concrètement sa force au harceleur ?</li>
+              <li>Quel geste décisif brise l'engrenage à la fin ?</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="witness-mission-form">
+          <h3>📋 DÉCISION DU JURY : LE POUVOIR DES TÉMOINS</h3>
+          <p class="witness-form-subtitle">Cochez UNIQUEMENT les réactions qui protègent réellement la victime :</p>
+
+          <div class="witness-list" id="witness-reactions">
+            <label class="witness-item" data-id="1" data-correct="false">
+              <input type="checkbox" class="witness-checkbox">
+              <div class="item-content">
+                <span class="item-num">1</span>
+                <p><strong>Rire avec le groupe :</strong> Faire comme tout le monde pour ne pas devenir la prochaine cible.</p>
+              </div>
+            </label>
+            <label class="witness-item" data-id="2" data-correct="true">
+              <input type="checkbox" class="witness-checkbox">
+              <div class="item-content">
+                <span class="item-num">2</span>
+                <p><strong>Alerter immédiatement un adulte de confiance :</strong> Prévenir la CPE, un professeur, un surveillant ou l'infirmière.</p>
+              </div>
+            </label>
+            <label class="witness-item" data-id="3" data-correct="false">
+              <input type="checkbox" class="witness-checkbox">
+              <div class="item-content">
+                <span class="item-num">3</span>
+                <p><strong>Filmer la scène :</strong> Enregistrer la vidéo et la poster sur le groupe de classe.</p>
+              </div>
+            </label>
+            <label class="witness-item" data-id="4" data-correct="true">
+              <input type="checkbox" class="witness-checkbox">
+              <div class="item-content">
+                <span class="item-num">4</span>
+                <p><strong>Rompre l'isolement d'Enzo :</strong> Le rejoindre juste après, lui dire qu'on le soutient et l'accompagner.</p>
+              </div>
+            </label>
+            <label class="witness-item" data-id="5" data-correct="false">
+              <input type="checkbox" class="witness-checkbox">
+              <div class="item-content">
+                <span class="item-num">5</span>
+                <p><strong>Le silence passif :</strong> Se dire que ce ne sont pas nos affaires.</p>
+              </div>
+            </label>
+          </div>
+
+          <div class="enigma-footer">
+            <div class="footer-count">Réactions protectrices cochées : <span id="e3-count-selected">0</span></div>
+            <button id="btn-validate-e3" class="btn-primary">🤝 Valider l'analyse et obtenir le 3ème chiffre</button>
+          </div>
+        </div>
+
+        <div id="e3-result-box" class="solution-box hidden"></div>
+      </section>
+
+      <!-- Énigme 1.4 : La Fréquence 3018 -->
+      <section id="tab-p1-enigma-4" class="enigma-pane">
+        <div class="pane-header">
+          <div>
+            <span class="pane-tag">Parcours 1 • Étape 4 sur 4 • Obtention du 4ème chiffre</span>
+            <h2>Énigme 4 : La Fréquence de Secours 3018</h2>
+          </div>
+          <div class="role-hint-pill">📞 Liaison officielle d'urgence</div>
+        </div>
+
+        <div class="mission-instructions">
+          <p>
+            <strong>Consigne :</strong> Composez le <strong>numéro national unique, gratuit, 100% anonyme et confidentiel</strong>.
+            Le 4ème chiffre correspond au <strong>DERNIER chiffre de ce numéro</strong>.
+          </p>
+        </div>
+
+        <div class="phone-call-container">
+          <div class="phone-device">
+            <div class="phone-speaker"></div>
+            <div class="phone-display">
+              <div class="phone-status-bar"><span>RÉSEAU SÉCURISÉ</span><span>🔋 100%</span></div>
+              <div class="phone-number-field" id="dialed-number">_ _ _ _</div>
+              <div class="call-feedback" id="call-feedback-text">Composez les 4 chiffres du service national</div>
+            </div>
+            <div class="dialpad">
+              <button class="dial-key" data-digit="1">1</button>
+              <button class="dial-key" data-digit="2">2<span>ABC</span></button>
+              <button class="dial-key" data-digit="3">3<span>DEF</span></button>
+              <button class="dial-key" data-digit="4">4<span>GHI</span></button>
+              <button class="dial-key" data-digit="5">5<span>JKL</span></button>
+              <button class="dial-key" data-digit="6">6<span>MNO</span></button>
+              <button class="dial-key" data-digit="7">7<span>PQRS</span></button>
+              <button class="dial-key" data-digit="8">8<span>TUV</span></button>
+              <button class="dial-key" data-digit="9">9<span>WXYZ</span></button>
+              <button class="dial-key action-key" id="dial-backspace">⌫</button>
+              <button class="dial-key" data-digit="0">0</button>
+              <button class="dial-key action-key" id="dial-clear">C</button>
+            </div>
+            <div class="call-action-wrapper">
+              <button id="btn-call-emergency" class="btn-call">📞 ÉTABLIR LA LIAISON D'URGENCE</button>
+            </div>
+          </div>
+
+          <div class="phone-info-panel">
+            <h3>⚡ POUVOIRS OFFICIELS DU 3018 :</h3>
+            <ul>
+              <li>Accessible 7j/7 de 9h à 23h, gratuit et anonyme.</li>
+              <li>Tiers de confiance : fait supprimer en urgence des contenus sur Snapchat, TikTok, Instagram.</li>
+              <li>Coffre-fort numérique de preuves certifié.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="e4-result-box" class="solution-box hidden"></div>
+      </section>
+
+
+      <!-- ==========================================================================
+           CONTENUS DU PARCOURS 2 (CELLULE pHARe • 3 DOSSIERS COMPLEXES)
+           ========================================================================== -->
+      <section id="tab-p2-cases" class="enigma-pane">
+        <div class="pane-header">
+          <div>
+            <span class="pane-tag">Parcours 2 • Cellule pHARe • Instruction des Zones Grises</span>
+            <h2>Atelier : Les 3 Dossiers Complexes</h2>
+          </div>
+          <div class="role-hint-pill">⚖️ Droit & Responsabilités</div>
+        </div>
+
+        <div class="mission-instructions">
+          <p>
+            <strong>Consigne :</strong> Instruisez les 3 affaires ci-dessous. Débattez au sein de l'îlot pour trancher les zones grises sans tomber dans les idées reçues !
+          </p>
+        </div>
+
+        <!-- Dossier 1 : Mème EPS -->
+        <div class="case-file-dossier">
+          <div class="case-header">
+            <span class="case-tag">AFFAIRE 1 // « C'ÉTAIT JUSTE UN MÈME POUR RIRE »</span>
+            <h3>Noah, Yanis, Sarah & Kylian (L'effet de meute)</h3>
+          </div>
+          <div class="case-narrative">
+            <p>
+              Yanis prend une photo de Noah qui trébuche en EPS. Le soir, sur Snapchat (28 élèves), il écrit : <em>« Noah en mode bug système 💀 »</em>.<br>
+              Sarah en fait un sticker WhatsApp. Kylian le partage dans un groupe inter-collèges de 150 personnes. Pendant 10 jours en classe, des élèves se l'envoient en étouffant des rires. Noah finit par aller à l'infirmerie tous les jeudis (jour d'EPS).
+            </p>
+          </div>
+          <div class="investigation-questions-block">
+            <div class="question-card">
+              <span class="q-num">Question 1.1</span>
+              <p class="q-title"><strong>Qualification juridique :</strong> Yanis affirme qu'il n'a posté qu'une fois dans un groupe privé de classe. Que tranche précisément la loi ?</p>
+              <div class="options-stack">
+                <label class="option-item">
+                  <input type="radio" name="p2_d1_q1" value="A">
+                  <span>La loi considère que dans un groupe privé, l'auteur initial porte seul l'entière responsabilité des partages ultérieurs de ses camarades.</span>
+                </label>
+                <label class="option-item">
+                  <input type="radio" name="p2_d1_q1" value="B">
+                  <span>Même avec un envoi unique de la part de Yanis, le relais par plusieurs camarades crée une <strong>répétition collective de fait (« harcèlement en meute »)</strong>, et la diffusion sans accord caractérise l'atteinte au droit à l'image et l'altération de la santé de Noah (évitement scolaire).</span>
+                </label>
+                <label class="option-item">
+                  <input type="radio" name="p2_d1_q1" value="C">
+                  <span>L'infraction n'est retenue que parce que Noah est allé à l'infirmerie ; sans certificat médical officiel, l'acte de Yanis reste une simple moquerie non punissable.</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="question-card">
+              <span class="q-num">Question 1.2</span>
+              <p class="q-title"><strong>Chaîne des responsabilités :</strong> Sarah a créé le sticker WhatsApp et Kylian l'a diffusé hors du collège. Comment le droit apprécie-t-il leurs actes ?</p>
+              <div class="options-stack">
+                <label class="option-item">
+                  <input type="radio" name="p2_d1_q2" value="A">
+                  <span>Kylian est le plus coupable car il a sorti l'image du cadre du collège ; Sarah n'a fait que du graphisme humoristique sans intention de nuire.</span>
+                </label>
+                <label class="option-item">
+                  <input type="radio" name="p2_d1_q2" value="B">
+                  <span>Sarah et Kylian ont chacun <strong>aggravé l'infraction</strong> : fabriquer un support pérenne d'humiliation (sticker) et élargir l'audience à un public externe constituent des actes délictueux distincts qui engagent leur propre responsabilité pénale.</span>
+                </label>
+                <label class="option-item">
+                  <input type="radio" name="p2_d1_q2" value="C">
+                  <span>Seul Yanis peut être sanctionné disciplinairement par le collège, car les actes de Sarah et Kylian se sont déroulés en dehors des cours sur téléphones personnels.</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dossier 2 : Ghosting -->
+        <div class="case-file-dossier" style="margin-top: 20px;">
+          <div class="case-header">
+            <span class="case-tag">AFFAIRE 2 // « LE DILEMME DE LOYAUTÉ »</span>
+            <h3>Léna, Inès & Hugo (Rumeur et exclusion silencieuse)</h3>
+          </div>
+          <div class="case-narrative">
+            <p>
+              Inès lance une fausse rumeur en story Instagram accusant Léna d'avoir volé de l'argent. Aucune insulte n'est prononcée dans les couloirs, mais dès que Léna approche, les conversations s'arrêtent. À la cantine, <strong>personne ne s'assoit à sa table depuis 3 semaines</strong>. Hugo sait que c'est faux mais se tait par peur d'être rejeté.
+            </p>
+          </div>
+          <div class="investigation-questions-block">
+            <div class="question-card">
+              <span class="q-num">Question 2.1</span>
+              <p class="q-title"><strong>Qualification juridique :</strong> Il n'y a ni coups ni insultes directes. Pourquoi est-ce pourtant qualifié de harcèlement moral ?</p>
+              <div class="options-stack">
+                <label class="option-item">
+                  <input type="radio" name="p2_d2_q1" value="A">
+                  <span>La diffamation en ligne (fausse accusation de vol) associée à une mise à l'écart concertée et répétée sur 3 semaines détruit délibérément les conditions de vie et la santé mentale de Léna.</span>
+                </label>
+                <label class="option-item">
+                  <input type="radio" name="p2_d2_q1" value="B">
+                  <span>Le règlement intérieur d'un collège oblige chaque élève à accepter n'importe quel camarade à sa table de cantine sous peine d'exclusion.</span>
+                </label>
+                <label class="option-item">
+                  <input type="radio" name="p2_d2_q1" value="C">
+                  <span>Ce n'est pas un harcèlement pénal mais un litige civil privé, car il n'y a eu aucune violence physique au collège.</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="question-card">
+              <span class="q-num">Question 2.2</span>
+              <p class="q-title"><strong>Le cas d'Hugo :</strong> Hugo sait que Léna est innocente. Quelle posture éthique et sécurisée doit-il adopter ?</p>
+              <div class="options-stack">
+                <label class="option-item">
+                  <input type="radio" name="p2_d2_q2" value="A">
+                  <span>Rester neutre en classe et attendre qu'Inès se lasse, car intervenir briserait le pacte de loyauté entre amis.</span>
+                </label>
+                <label class="option-item">
+                  <input type="radio" name="p2_d2_q2" value="B">
+                  <span>Expliquer calmement en tête-à-tête à Inès qu'il était avec Léna et que la rumeur est fausse, tout en signalant discrètement la situation à l'infirmière ou à la vie scolaire pour désamorcer l'isolement sans affrontement public.</span>
+                </label>
+                <label class="option-item">
+                  <input type="radio" name="p2_d2_q2" value="C">
+                  <span>Publier à son tour une story pour accuser Inès de mentir et révéler ses secrets personnels.</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dossier 3 : Riposte Doxxing -->
+        <div class="case-file-dossier" style="margin-top: 20px;">
+          <div class="case-header">
+            <span class="case-tag">AFFAIRE 3 // « LA RIPOSTE HORS-LA-LOI »</span>
+            <h3>Adam & Mathis (L'illusion de la légitime défense et le doxxing)</h3>
+          </div>
+          <div class="case-narrative">
+            <p>
+              Adam reçoit des messages haineux anonymes sur NGL. Découvrant que c'est Mathis, il publie sur TikTok une vidéo filmée à l'insu de Mathis dans les toilettes avec son nom et son <strong>adresse postale privée</strong>.
+            </p>
+          </div>
+          <div class="investigation-questions-block">
+            <div class="question-card">
+              <span class="q-num">Question 3.1</span>
+              <p class="q-title"><strong>Analyse juridique de la riposte :</strong> Le fait qu'Adam ait été la cible de moqueries pendant des mois lui donne-t-il le droit de riposter en publiant la vidéo et l'adresse de Mathis ?</p>
+              <div class="options-stack">
+                <label class="option-item">
+                  <input type="radio" name="p2_d3_q1" value="A">
+                  <span>Oui, le Code pénal reconnaît la légitime défense proportionnée : Mathis ayant attaqué anonymement, Adam pouvait riposter publiquement.</span>
+                </label>
+                <label class="option-item">
+                  <input type="radio" name="p2_d3_q1" value="B">
+                  <span>Non : <strong>la légitime défense ne s'applique pas aux diffusions en ligne</strong>. En publiant une vidéo filmée dans un lieu intime (toilettes) et l'adresse de Mathis (doxxing), Adam commet des infractions pénales autonomes et devient auteur de délits à son tour devant le juge des mineurs.</span>
+                </label>
+                <label class="option-item">
+                  <input type="radio" name="p2_d3_q1" value="C">
+                  <span>La responsabilité d'Adam est totalement annulée car Mathis a commis la première faute.</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="question-card">
+              <span class="q-num">Question 3.2</span>
+              <p class="q-title"><strong>L'illusion de l'anonymat :</strong> Mathis pensait que sur NGL la police ne pouvait rien lui faire. Comment la justice remonte-t-elle jusqu'à lui ?</p>
+              <div class="options-stack">
+                <label class="option-item">
+                  <input type="radio" name="p2_d3_q2" value="A">
+                  <span>NGL et les opérateurs télécoms sont légalement soumis aux <strong>réquisitions judiciaires de la police et du Procureur</strong> : les adresses IP, numéros de ligne et identifiants techniques permettent d'identifier formellement l'auteur en quelques heures.</span>
+                </label>
+                <label class="option-item">
+                  <input type="radio" name="p2_d3_q2" value="B">
+                  <span>L'anonymat est techniquement inviolable sur les serveurs étrangers, mais la police utilise des hackers civils pour infiltrer les comptes Instagram associés.</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="enigma-footer">
+          <div class="footer-count">Instruction des 3 Dossiers Complexes</div>
+          <button id="btn-validate-p2" class="btn-primary">⚖️ Valider l'Instruction de la Cellule pHARe</button>
+        </div>
+
+        <div id="p2-result-box" class="solution-box hidden"></div>
+      </section>
+
+
+      <!-- ==========================================================================
+           CONTENUS DU PARCOURS 3 (L'ANATOMIE DU PIÈGE • « LE 7ème REGARD »)
+           ========================================================================== -->
+      <section id="tab-p3-poster" class="enigma-pane active">
+        <div class="pane-header">
+          <div>
+            <span class="pane-tag">Parcours 3 • Décryptage Sémiologique & Atelier d'Écriture (35 - 40 min)</span>
+            <h2>L'Anatomie du Piège : Atelier « Le 7ème Regard »</h2>
+          </div>
+          <div class="role-hint-pill">🖼️ Analyse d'Affiche & Écriture Réaliste</div>
+        </div>
+
+        <div class="mission-instructions">
+          <p>
+            <strong>Contexte de l'atelier :</strong> Cette affiche a été créée au collège pour sensibiliser à la mécanique du harcèlement.
+            En îlot, explorez d'abord les <strong>4 indices cachés</strong> dans sa composition graphique, puis donnez vie à l'un de ces 6 regards à travers l'atelier d'écriture collaborative.
+          </p>
+        </div>
+
+        <!-- MODULE 1 : DÉCRYPTAGE VISUEL (AFFICHE RÉELLE AVEC ZONES INTERACTIVES) -->
+        <div class="poster-decoding-layout">
+          <div class="poster-image-wrapper" id="poster-container">
+            <img src="assets/affiche_harcelement.jpg" alt="Affiche Harcèlement Collège" class="poster-real-img" id="poster-img-display">
+            <!-- Cadres de ciblage lumineux interactifs synchronisés avec les 4 indices -->
+            <div class="poster-target-zone" id="target-zone-1a" title="Indice 1 : Regards du haut"></div>
+            <div class="poster-target-zone" id="target-zone-1b" title="Indice 1 : Regards du bas"></div>
+            <div class="poster-target-zone" id="target-zone-2" title="Indice 2 : Geste central (mains sur les yeux)"></div>
+            <div class="poster-target-zone" id="target-zone-3" title="Indice 3 : Typographie hARCELement"></div>
+            <div class="poster-target-zone" id="target-zone-4" title="Indice 4 : Question du haut"></div>
+            <div class="poster-hotspot-hint" id="poster-hotspot-msg">
+              💡 Cliquez sur un indice à droite pour allumer sa zone sur l'affiche
+            </div>
+          </div>
+
+          <div class="poster-clues-stack">
+            <div class="clues-progress-bar-box">
+              <div class="clues-progress-header">
+                <span>🔎 Progression de l'observation :</span>
+                <strong id="clues-examined-count">0 / 4 zones examinées</strong>
+              </div>
+              <div class="clues-progress-bar">
+                <div class="clues-progress-fill" id="clues-progress-fill" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <!-- Indice 1 -->
+            <div class="clue-card" id="clue-card-1" data-indice="1">
+              <div class="clue-header">
+                <div>
+                  <span class="clue-tag">INDICE 1 // LE CADRAGE</span>
+                  <h4>Les 6 Yeux (3 en haut, 3 en bas)</h4>
+                </div>
+                <span class="clue-status-pill" id="pill-indice-1">🎯 Cliquez pour cibler</span>
+              </div>
+              <p class="clue-question">« Pourquoi avoir cadré 6 yeux différents plutôt qu'un seul visage de harceleur ? »</p>
+              <div class="clue-reflection-prompt">
+                🔍 <strong>Piste de réflexion :</strong> Observez la disposition et la multiplicité des regards. Que cherchent à montrer les créateurs de l'affiche concernant la vie au collège et sur les réseaux sociaux ?
+              </div>
+            </div>
+
+            <!-- Indice 2 -->
+            <div class="clue-card" id="clue-card-2" data-indice="2">
+              <div class="clue-header">
+                <div>
+                  <span class="clue-tag">INDICE 2 // LE GESTE CENTRAL</span>
+                  <h4>Les Mains sur les Yeux</h4>
+                </div>
+                <span class="clue-status-pill" id="pill-indice-2">🎯 Cliquez pour cibler</span>
+              </div>
+              <p class="clue-question">« Que signifie ce geste de se cacher les yeux ? Y a-t-il une double lecture ? »</p>
+              <div class="clue-reflection-prompt">
+                🔍 <strong>Piste de réflexion :</strong> Analysez le geste du personnage central, mais aussi ce que ce comportement peut évoquer pour quelqu'un qui assiste à la situation.
+              </div>
+            </div>
+
+            <!-- Indice 3 -->
+            <div class="clue-card" id="clue-card-3" data-indice="3">
+              <div class="clue-header">
+                <div>
+                  <span class="clue-tag">INDICE 3 // LA TYPOGRAPHIE</span>
+                  <h4>Les Lettres « h A R C e L E M e n T »</h4>
+                </div>
+                <span class="clue-status-pill" id="pill-indice-3">🎯 Cliquez pour cibler</span>
+              </div>
+              <p class="clue-question">« Pourquoi avoir écrit le mot avec des lettres dépareillées, de styles et tailles différents ? »</p>
+              <div class="clue-reflection-prompt">
+                🔍 <strong>Piste de réflexion :</strong> Observez la forme de chaque lettre découpée. En quoi cette présentation reflète-t-elle la façon dont se construit le harcèlement au sein d'un groupe ?
+              </div>
+            </div>
+
+            <!-- Indice 4 -->
+            <div class="clue-card" id="clue-card-4" data-indice="4">
+              <div class="clue-header">
+                <div>
+                  <span class="clue-tag">INDICE 4 // LA QUESTION DU HAUT</span>
+                  <h4>« L'Amitié est-elle la clé ? »</h4>
+                </div>
+                <span class="clue-status-pill" id="pill-indice-4">🎯 Cliquez pour cibler</span>
+              </div>
+              <p class="clue-question">« L'affiche pose cette question. Quelle est la limite de cette idée ? »</p>
+              <div class="clue-reflection-prompt">
+                🔍 <strong>Piste de réflexion :</strong> Réfléchissez à ce qu'un ami peut apporter, mais aussi à ses limites et aux freins réels qui empêchent d'agir seul face à une situation de harcèlement.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODULE 2 : ATELIER D'ÉCRITURE « LE 7ème REGARD » (20 MIN) -->
+        <div class="atelier-writing-section" style="margin-top: 35px;">
+          <div class="atelier-header">
+            <span class="section-badge">ATELIER COLLABORATIF EN ÎLOT (20 MIN)</span>
+            <h3>✍️ Écriture d'une Scène Réaliste : « Le 7ème Regard »</h3>
+            <p class="atelier-pitch">
+              « Regardez bien l'affiche : il y a 6 regards braqués sur elle. Imaginez que l'un de ces 6 regards décide de ne plus être un simple spectateur.
+              <strong>Attention : pas de scène de film hollywoodienne</strong> où un héros fait un grand discours et où tout le monde applaudit. 
+              Dans la vraie vie au collège, comment ça se passe concrètement ? »
+            </p>
+          </div>
+
+          <!-- Sélection de l'œil -->
+          <div class="select-eye-wrapper">
+            <label>1. Choisissez le regard que votre îlot va incarner (cliquez sur l'un des 6 yeux) :</label>
+            <div class="eyes-picker-grid">
+              <button type="button" class="btn-eye-choice" data-eye="1">👁️ Œil 1 (Haut Gauche)</button>
+              <button type="button" class="btn-eye-choice" data-eye="2">👁️ Œil 2 (Haut Milieu)</button>
+              <button type="button" class="btn-eye-choice" data-eye="3">👁️ Œil 3 (Haut Droite)</button>
+              <button type="button" class="btn-eye-choice" data-eye="4">👁️ Œil 4 (Bas Gauche)</button>
+              <button type="button" class="btn-eye-choice" data-eye="5">👁️ Œil 5 (Bas Milieu)</button>
+              <button type="button" class="btn-eye-choice" data-eye="6">👁️ Œil 6 (Bas Droite)</button>
+            </div>
+            <div class="selected-eye-feedback-pill" id="eye-feedback-badge">
+              <span>🎯 Regard actuellement choisi :</span>
+              <strong id="lbl-active-eye">👁️ Œil 1 (Haut Gauche)</strong>
+              <span class="sub-hint">(À votre îlot d'inventer l'identité de cet élève)</span>
+            </div>
+          </div>
+
+          <!-- Formulaire guidé d'écriture -->
+          <div class="writing-form-grid">
+            <div class="writing-input-block">
+              <label for="p3-character-link">
+                <strong>Étape 1 : L'identité du regard</strong><br>
+                <span class="sub-lbl">Définissez l'identité précise de cet élève, son rôle au collège et la nature de son lien avec la fille au centre de l'affiche.</span>
+              </label>
+              <textarea id="p3-character-link" rows="3" placeholder="Rédigez ici l'identité du personnage choisi, son quotidien au collège et sa relation avec la victime..."></textarea>
+            </div>
+
+            <div class="writing-input-block">
+              <label for="p3-character-trigger">
+                <strong>Étape 2 : Le déclic (Le point de bascule)</strong><br>
+                <span class="sub-lbl">Décrivez la situation ou le signe précis qui provoque chez cet élève une prise de conscience (le moment où il réalise que la situation devient destructrice).</span>
+              </label>
+              <textarea id="p3-character-trigger" rows="3" placeholder="Rédigez ici l'événement ou le détail précis qui fait basculer ce témoin et déclenche sa décision d'agir..."></textarea>
+            </div>
+
+            <div class="writing-input-block full-width">
+              <label for="p3-character-strategy">
+                <strong>Étape 3 : La stratégie de sortie réaliste (dans les 24 heures)</strong><br>
+                <span class="sub-lbl">Détaillez son plan d'action concret mené dans les 24 heures : comment agit-il pour soutenir la victime et quelle démarche engage-t-il pour stopper l'engrenage sans se mettre en danger (sans héroïsme irréaliste).</span>
+              </label>
+              <textarea id="p3-character-strategy" rows="5" placeholder="Rédigez ici la démarche concrète et réaliste sous 24h (action de soutien auprès de la victime et signalement protecteur)..."></textarea>
+            </div>
+          </div>
+
+          <div class="atelier-actions-bar">
+            <button id="btn-generate-scene" class="btn-primary">
+              📜 Mettre en forme et valider notre Scène du 7ème Regard
+            </button>
+          </div>
+
+          <!-- Résultat mis en forme prêt pour la lecture orale -->
+          <div id="formatted-scene-box" class="scene-preview-card hidden">
+            <div class="scene-card-header">
+              <span class="scene-seal">🛡️ COLLÈGE DE BIGUGLIA • CELLULE CITOYENNE</span>
+              <h3 id="scene-final-title">Scène Réaliste : Le 7ème Regard</h3>
+              <p id="scene-final-meta">Rédigée par l'îlot : Brigade pHARe • Œil n°1</p>
+            </div>
+            <div class="scene-card-body" id="scene-final-content">
+              <!-- Contenu injecté dynamiquement -->
+            </div>
+
+            <!-- NOUVELLE SECTION DE CLÔTURE ET DE VICTOIRE CITOYENNE -->
+            <div class="scene-closure-action-banner">
+              <div class="closure-badge-wrap">
+                <span class="closure-icon">🏆</span>
+                <div>
+                  <h4 class="closure-title">SCÈNE CITOYENNE VALIDÉE AVEC SUCCÈS !</h4>
+                  <p class="closure-desc">
+                    Votre brigade a formalisé une action réaliste et responsable. La publication hostile a été stoppée.
+                  </p>
+                </div>
+              </div>
+
+              <div class="closure-action-buttons">
+                <button type="button" id="btn-p3-victory" class="btn-primary btn-large btn-glow">
+                  🎓 OBTENIR LE DIPLÔME OFFICIEL DU COLLÈGE DE BIGUGLIA &rarr;
+                </button>
+                <button type="button" id="btn-print-scene" class="btn-secondary">
+                  🖨️ Imprimer la Scène pour l'Oral (2 min)
+                </button>
+                <button type="button" id="btn-p3-phone" class="btn-secondary">
+                  📱 Accéder au Smartphone de Secours
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODULE 3 : RESTITUTION & CLÔTURE « CHANGER L'AFFICHE » (10 MIN) -->
+        <div class="debriefing-manifesto" style="margin-top: 35px;">
+          <h3>📢 RESTITUTION EN CLASSE ENTIÈRE : « CHANGER L'AFFICHE » (10 MIN)</h3>
+          
+          <div class="manifesto-grid">
+            <div class="m-card">
+              <span class="m-num">1</span>
+              <h4>Lecture Flash (6 min)</h4>
+              <p>3 îlots volontaires lisent leur scène à voix haute. Pas de jugement moral, juste le vote à main levée de la classe : <em>« Cette réaction est-elle crédible et réalisable dans notre collège ? »</em></p>
+            </div>
+            <div class="m-card">
+              <span class="m-num">2</span>
+              <h4>L'Histoire de cette Affiche</h4>
+              <p>Cette affiche a été réalisée par des élèves du collège. Elle démontre que si le phénomène traverse les générations, les moyens de s'en sortir reposent toujours sur la solidarité et la parole.</p>
+            </div>
+            <div class="m-card" style="grid-column: span 2;">
+              <span class="m-num">3</span>
+              <h4>Faire Baisser les Mains</h4>
+              <p>Si aujourd'hui la fille au centre baisse enfin les mains pour regarder autour d'elle au collège de Biguglia, vers qui peut-elle se tourner ? <strong>L'équipe ressource pHARe, la vie scolaire, l'infirmerie, ses professeurs, et le 3018 (gratuit, anonyme, 7j/7).</strong></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ==========================================================================
+           ÉCRAN FINAL : DIGICODE SMARTPHONE (POUR LE PARCOURS 1 & 2)
+           ========================================================================== -->
+      <section id="tab-phone-lock" class="enigma-pane">
+        <div class="pane-header">
+          <div>
+            <span class="pane-tag">ÉPREUVE FINALE DE DÉVERROUILLAGE</span>
+            <h2>📱 Terminal Smartphone de la Victime</h2>
+          </div>
+          <div class="role-hint-pill">🔒 Consultation des notes du Scribe</div>
+        </div>
+
+        <div class="phone-lock-wrapper">
+          <div class="smartphone-frame">
+            <div class="phone-notch"></div>
+            
+            <div class="screen-content">
+              <div class="lock-alert-header">
+                <span class="lock-icon">🔒</span>
+                <h3>TERMINAL VERROUILLÉ</h3>
+                <p class="lock-countdown">Diffusion imminente sur @biguglia_gossip_2b !</p>
+              </div>
+
+              <div class="scribe-callout">
+                <span class="pen-icon">📝</span>
+                <p>Consultez les notes prises par votre Scribe sur votre carnet de bord pour saisir les 4 chiffres dans l'ordre !</p>
+              </div>
+
+              <!-- Indicateur de saisie du PIN à 4 points (VIDE) -->
+              <div class="pin-display">
+                <div class="pin-dot" id="dot-0"></div>
+                <div class="pin-dot" id="dot-1"></div>
+                <div class="pin-dot" id="dot-2"></div>
+                <div class="pin-dot" id="dot-3"></div>
+              </div>
+
+              <div class="pin-status-msg" id="pin-status-msg">Entrez le code secret à 4 chiffres</div>
+
+              <!-- Clavier numérique PIN -->
+              <div class="pin-keypad">
+                <button class="pin-key" data-num="1">1</button>
+                <button class="pin-key" data-num="2">2</button>
+                <button class="pin-key" data-num="3">3</button>
+                <button class="pin-key" data-num="4">4</button>
+                <button class="pin-key" data-num="5">5</button>
+                <button class="pin-key" data-num="6">6</button>
+                <button class="pin-key" data-num="7">7</button>
+                <button class="pin-key" data-num="8">8</button>
+                <button class="pin-key" data-num="9">9</button>
+                <button class="pin-key action" id="pin-clear">Effacer</button>
+                <button class="pin-key" data-num="0">0</button>
+                <button class="pin-key action" id="pin-submit">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ================= ÉCRAN DE VICTOIRE ================= -->
+  <div id="screen-victory" class="screen-view">
+    <div class="victory-container">
+      <div class="victory-header">
+        <div class="victory-icon">🎉</div>
+        <h1>MISSION CITOYENNE ACCOMPLIE !</h1>
+        <p class="victory-tagline">LA PUBLICATION A ÉTÉ ANNULÉE • LE COMPTE @biguglia_gossip_2b EST DÉFINITIVEMENT FERMÉ</p>
+      </div>
+
+      <div class="victory-stats-card">
+        <div class="stat-item">
+          <span class="stat-label">Brigade d'enquête :</span>
+          <span class="stat-value" id="vic-team-name">Brigade pHARe Biguglia</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Temps restant :</span>
+          <span class="stat-value" id="vic-time-left">14 min 32 s</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Statut du smartphone :</span>
+          <span class="stat-value code-highlight">🟢 Déverrouillé & Sécurisé</span>
+        </div>
+      </div>
+
+      <div class="debriefing-manifesto">
+        <h3>📢 SYNTHÈSE DES APPRENTISSAGES AU COLLÈGE DE BIGUGLIA</h3>
+        <div class="manifesto-grid">
+          <div class="m-card">
+            <span class="m-num">1</span>
+            <h4>Les 3 Critères Fondamentaux</h4>
+            <p><strong>Violence + Répétition + Isolement / Domination</strong>. Un conflit ponctuel n'est pas un harcèlement mais doit être apaisé avant de dégénérer.</p>
+          </div>
+          <div class="m-card">
+            <span class="m-num">2</span>
+            <h4>La Loi de 2022 : Un Délit Pénal</h4>
+            <p>Puni de <strong>3 à 10 ans de prison</strong> et de <strong>45 000 à 150 000 € d'amende</strong>. L'anonymat sur les réseaux est une illusion juridique face aux réquisitions IP.</p>
+          </div>
+          <div class="m-card">
+            <span class="m-num">3</span>
+            <h4>Le Pouvoir des Témoins</h4>
+            <p>Rire ou se taire, c'est cautionner la meute. Filmer et diffuser est un délit puni par la loi. <strong>C'est le groupe qui donne sa force au harceleur, c'est le groupe qui peut l'arrêter.</strong></p>
+          </div>
+          <div class="m-card">
+            <span class="m-num">4</span>
+            <h4>Le Réflexe Vital : Le 3018 & les Adultes</h4>
+            <p>Numéro <strong>gratuit, anonyme et confidentiel</strong> doté d'un coffre-fort de preuves. Les adultes du collège (CPE, profs, infirmière) sont là pour vous protéger.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="victory-actions no-print">
+        <button id="btn-print-diploma" class="btn-primary">
+          🖨️ Imprimer le Diplôme d'Ambassadeurs Citoyens pHARe
+        </button>
+        <button id="btn-restart-game" class="btn-secondary">
+          🔄 Recommencer l'Activité
+        </button>
+      </div>
+
+      <!-- Diplôme officiel imprimable -->
+      <div id="printable-diploma" class="diploma-box">
+        <div class="diploma-border">
+          <div class="diploma-seal">🛡️</div>
+          <h2>COLLÈGE DE BIGUGLIA</h2>
+          <p class="diploma-subtitle">DIPLÔME D'AMBASSADEURS DE LA CELLULE CITOYENNE pHARe</p>
+          <p class="diploma-awarded">Décerné avec les félicitations de la communauté éducative à la brigade de 4ème :</p>
+          <div class="diploma-team" id="diploma-team-name">Brigade pHARe Biguglia</div>
+          <p class="diploma-text">
+            Pour son engagement exemplaire dans la lutte contre le harcèlement scolaire, 
+            la maîtrise des critères légaux et la démonstration que :<br>
+            <strong>« Face au harcèlement, le silence protège l'agresseur, la parole protège la victime. »</strong>
+          </p>
+          <div class="diploma-footer">
+            <div>
+              <span>Date de validation :</span><br>
+              <strong id="diploma-date">--/--/----</strong>
+            </div>
+            <div>
+              <span>Ligne d'Urgence Nationale :</span><br>
+              <strong>3018 (Gratuit & Anonyme)</strong>
+            </div>
+            <div>
+              <span>Visa de l'Équipe Éducative :</span><br>
+              <em>Collège de Biguglia • Engagement Citoyen pHARe</em>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= MODAL SUPERVISEUR / ENSEIGNANT ================= -->
+  <div id="modal-teacher" class="modal-overlay hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>⚙️ Panneau de Contrôle Enseignant & Différenciation</h3>
+        <button id="btn-close-modal" class="modal-close">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="control-section">
+          <h4>🔀 Forcer l'Aiguillage vers un Parcours</h4>
+          <div class="control-buttons">
+            <button id="btn-force-track-1" class="btn-small">Parcours 1 (Escape Game 4 clés)</button>
+            <button id="btn-force-track-2" class="btn-small">Parcours 2 (Cellule pHARe 3 dossiers)</button>
+            <button id="btn-force-track-3" class="btn-small">Parcours 3 (Affiche « 7ème Regard »)</button>
+          </div>
+        </div>
+
+        <div class="control-section">
+          <h4>⏱️ Gestion du Chronomètre</h4>
+          <div class="control-buttons">
+            <button id="btn-time-minus5" class="btn-small">- 5 minutes</button>
+            <button id="btn-time-pause" class="btn-small">⏸️ Pause</button>
+            <button id="btn-time-plus5" class="btn-small">+ 5 minutes</button>
+            <button id="btn-time-reset" class="btn-small">40:00 (Reset)</button>
+          </div>
+        </div>
+
+        <div class="control-section">
+          <h4>🔓 Forcer les Déblocages</h4>
+          <div class="control-buttons">
+            <button id="btn-force-all-p1" class="btn-small">Valider Parcours 1 (Code 3428)</button>
+            <button id="btn-force-all-p2" class="btn-small">Valider Parcours 2 (Zones Grises)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

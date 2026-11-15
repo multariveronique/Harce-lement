@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guide Enseignant | Cellule d'Enquête pHARe (Collège de Biguglia - 4ème)</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #0284c7;
+      --accent-red: #dc2626;
+      --accent-green: #15803d;
+      --accent-purple: #7e22ce;
+      --bg-light: #f8fafc;
+      --text: #1e293b;
+      --border: #cbd5e1;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: #f1f5f9;
+      line-height: 1.6;
+      padding: 30px 20px;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 35px 45px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    header {
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 20px;
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .badge-top {
+      background: var(--primary);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-top: 6px;
+    }
+    h2 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      border-left: 4px solid var(--secondary);
+      padding-left: 12px;
+      margin: 28px 0 14px 0;
+    }
+    h3 {
+      font-size: 1.05rem;
+      color: #0f172a;
+      margin: 16px 0 8px 0;
+    }
+    p, li {
+      font-size: 0.95rem;
+      color: #334155;
+    }
+    ul, ol {
+      margin-left: 20px;
+      margin-bottom: 14px;
+    }
+    li { margin-bottom: 6px; }
+
+    .callout {
+      background: var(--bg-light);
+      border-left: 4px solid var(--primary);
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+    }
+    .callout.green {
+      border-left-color: var(--accent-green);
+      background: #f0fdf4;
+    }
+    .callout.purple {
+      border-left-color: var(--accent-purple);
+      background: #faf5ff;
+    }
+    .callout.red {
+      border-left-color: var(--accent-red);
+      background: #fef2f2;
+    }
+
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+      margin: 18px 0;
+    }
+    .track-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 14px;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+    }
+    .track-box h4 {
+      font-size: 0.98rem;
+      color: var(--primary);
+      margin-bottom: 6px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 4px;
+    }
+    .track-box .profile {
+      font-size: 0.82rem;
+      color: #64748b;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+    .track-box ul {
+      margin-left: 16px;
+      font-size: 0.84rem;
+      flex: 1;
+    }
+
+    .timing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.9rem;
+    }
+    .timing-table th, .timing-table td {
+      border: 1px solid #cbd5e1;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    .timing-table th {
+      background: #e2e8f0;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    .answer-card {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+    }
+    .answer-card h4 {
+      font-size: 0.95rem;
+      color: var(--primary);
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .badge-code {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #f59e0b;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+
+    .print-btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .container { box-shadow: none; padding: 0; width: 100%; max-width: 100%; }
+      .no-print { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div>
+        <span class="badge-top">Documentation Pédagogique Officielle • pHARe</span>
+        <h1>Guide d'Animation & Différenciation (Collège de Biguglia)</h1>
+        <p><strong>Niveau :</strong> Classe de 4ème &bull; <strong>Durée :</strong> 55 minutes &bull; <strong>Format :</strong> 100% Numérique sur poste ou tablette</p>
+      </div>
+      <div class="no-print">
+        <button class="print-btn" onclick="window.print()">🖨️ Imprimer le Guide</button>
+      </div>
+    </header>
+
+    <!-- SECTION 1 : DIFFÉRENCIATION PÉDAGOGIQUE -->
+    <h2>1. Dispositif de Différenciation Pédagogique (3 Parcours au Choix)</h2>
+    <p>
+      Pour s'adapter à la diversité des profils d'élèves de 4ème et garantir une activité stimulante de <strong>35 à 40 minutes d'autonomie</strong>, la plateforme propose <strong>3 parcours indépendants et complémentaires</strong>. 
+      L'enseignant peut orienter chaque îlot (4-5 élèves) vers le parcours le plus pertinent :
+    </p>
+
+    <div class="tracks-grid">
+      <!-- Parcours 1 -->
+      <div class="track-box">
+        <h4>PARCOURS 1 • ESCAPE GAME</h4>
+        <div class="profile">Profil : Élèves ayant besoin de repères clairs, de gamification et d'étapes balisées.</div>
+        <ul>
+          <li><strong>Mécanique :</strong> 4 énigmes successives débloquant les 4 chiffres du code secret (3 - 4 - 2 - 8).</li>
+          <li><strong>Acquisitions :</strong> 3 critères légaux (violence, répétition, isolement), loi de mars 2022, vidéo « Des Héros », numéro d'urgence 3018.</li>
+          <li><strong>Clôture :</strong> Déverrouillage physique du smartphone sur digicode (sans rappel du code).</li>
+        </ul>
+      </div>
+
+      <!-- Parcours 2 -->
+      <div class="track-box" style="border-top: 3px solid var(--accent-green);">
+        <h4>PARCOURS 2 • ZONES GRISES</h4>
+        <div class="profile">Profil : Élèves rapides, à l'aise avec l'argumentation juridique et le débat d'idées.</div>
+        <ul>
+          <li><strong>Mécanique :</strong> Instruction contradictoire de 3 dossiers de crise réels au collège (Noah, Léna, Adam).</li>
+          <li><strong>Acquisitions :</strong> Droit à l'image, effet de meute numérique, exclusion silencieuse/ghosting, illégalité de la riposte/doxxing.</li>
+          <li><strong>Clôture :</strong> Rédaction de l'avis de la cellule et plaidoirie orale en classe.</li>
+        </ul>
+      </div>
+
+      <!-- Parcours 3 -->
+      <div class="track-box" style="border-top: 3px solid var(--accent-purple);">
+        <h4>PARCOURS 3 • LE 7ème REGARD</h4>
+        <div class="profile">Profil : Élèves créatifs, sensibles à l'analyse d'image et au travail d'écriture théâtrale/narrative.</div>
+        <ul>
+          <li><strong>Mécanique :</strong> Décryptage des 4 indices de l'affiche réelle du collège, suivi de l'écriture guidée en 3 étapes.</li>
+          <li><strong>Acquisitions :</strong> Sémiologie du harcèlement (regards, meute, isolement), passage à l'action réaliste sans héroïsme naïf.</li>
+          <li><strong>Clôture :</strong> Restitution orale flash (2 min) et vote de crédibilité par les pairs.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>💡 Souplesse en classe :</strong> L'enseignant peut basculer un îlot d'un parcours à un autre à tout moment en cliquant sur <code>🔀 Parcours</code> dans la barre de titre ou via le bouton secret <code>⚙️ Prof</code>.
+    </div>
+
+    <!-- SECTION 2 : DÉROULÉ MINUTÉ -->
+    <h2>2. Déroulé Minuté de la Séance (55 minutes)</h2>
+    <table class="timing-table">
+      <tr>
+        <th style="width: 15%;">Phase & Timing</th>
+        <th style="width: 45%;">Activités des Élèves</th>
+        <th style="width: 40%;">Rôle & Posture de l'Enseignant</th>
+      </tr>
+      <tr>
+        <td><strong>00:00 - 00:05</strong><br>(5 min)</td>
+        <td>
+          • Installation en îlots de 4-5 élèves.<br>
+          • Attribution des rôles : Capitaine/Chrono, Scribe, Analyste, Porte-parole.<br>
+          • Sélection du parcours assigné sur l'écran d'accueil.
+        </td>
+        <td>
+          • Distribue les fiches de route papier imprimées (<code>fiche_eleve.html</code>).<br>
+          • Rappelle le cadre bienveillant et l'interdiction des attaques personnelles.<br>
+          • Donne le top départ du chronomètre (40:00).
+        </td>
+      </tr>
+      <tr>
+        <td><strong>00:05 - 00:40</strong><br>(35 min)</td>
+        <td>
+          • Résolution en autonomie sur poste numérique.<br>
+          • <strong>Parcours 1 :</strong> Résolution des 4 énigmes, le Scribe consigne les 4 chiffres sur papier, puis saisie sur le digicode.<br>
+          • <strong>Parcours 2 :</strong> Analyse des 3 cas, sélection des qualifications et argumentation des responsabilités.<br>
+          • <strong>Parcours 3 :</strong> Exploration des indices de l'affiche, choix d'un œil et écriture collaborative de la scène en 3 étapes.
+        </td>
+        <td>
+          • Régule les temps d'écran et veille à la participation de chacun.<br>
+          • Relance le questionnement dans les îlots qui vont trop vite (ex : <em>« Pourquoi la riposte d'Adam est-elle illégale même s'il souffre ? »</em>).<br>
+          • Peut utiliser le code enseignant pour débloquer un groupe en difficulté.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>00:40 - 00:55</strong><br>(15 min)</td>
+        <td>
+          • <strong>Restitution croisée en plénière :</strong><br>
+          - 1 îlot du Parcours 1 présente les 3 critères légaux et la loi 2022.<br>
+          - 1 îlot du Parcours 2 présente le cas Adam et les limites de la riposte.<br>
+          - 2 îlots du Parcours 3 lisent leur scène du 7ème Regard (vote de crédibilité).<br>
+          • Affichage et impression du diplôme officiel de la brigade.
+        </td>
+        <td>
+          • Anime les échanges sans juger moralement.<br>
+          • Conclut sur la règle d'or : <em>« Face au harcèlement, le silence protège l'agresseur, la parole protège la victime. »</em><br>
+          • Rappelle la ligne d'urgence 3018 (gratuite, anonyme, confiscation des téléphones possible par la justice).
+        </td>
+      </tr>
+    </table>
+
+    <!-- SECTION 3 : CORRIGÉS & SOLUTIONS -->
+    <h2>3. Corrigés d'Investigation Détaillés</h2>
+
+    <!-- Corrigé Parcours 1 -->
+    <h3>Parcours 1 : « Opération Stop-Meute » (Code secret : 3428)</h3>
+
+    <div class="answer-card">
+      <h4>
+        <span>Énigme 1 : Le Tri des Faits</span>
+        <span class="badge-code">Chiffre 1 = 3</span>
+      </h4>
+      <p><strong>Critères cumulatifs :</strong> 1. Violence (physique, verbale ou psychologique) + 2. Répétition + 3. Asymétrie / Isolement.</p>
+      <ul>
+        <li><strong>Situations relevant du harcèlement (3) :</strong> B (blocage escalier 2 mois), C (groupe Snapchat quotidien), E (sac caché cantine tous les midis).</li>
+        <li><strong>Situations exclues (3) :</strong> A (dispute ponctuelle réconciliée = conflit ordinaire), D (pleurs note sans agression = tristesse personnelle), F (insulte isolée match foot = incivilité/agression ponctuelle passible de sanction mais non qualifiable de harcèlement).</li>
+      </ul>
+    </div>
+
+    <div class="answer-card">
+      <h4>
+        <span>Énigme 2 : Décodage de la Loi de Mars 2022</span>
+        <span class="badge-code">Chiffre 2 = 4</span>
+      </h4>
+      <p>
+        La loi n° 2022-299 du 2 mars 2022 a créé le délit spécifique de harcèlement scolaire dans le Code pénal (art. 222-33-2-3) :<br>
+        • Cas général (ITT &le; 8 jours) : <strong>X = 3 ans</strong> d'emprisonnement et 45 000 € d'amende.<br>
+        • Cas aggravé (suicide ou tentative de suicide) : <strong>Z = 10 ans</strong> de réclusion criminelle et 150 000 € d'amende.<br>
+        • Formule de calcul : <code>(Z - X) - 3 = (10 - 3) - 3 = 7 - 3 = 4</code>.
+      </p>
+    </div>
+
+    <div class="answer-card">
+      <h4>
+        <span>Énigme 3 : Court-métrage « Des Héros »</span>
+        <span class="badge-code">Chiffre 3 = 2</span>
+      </h4>
+      <p>
+        L'analyse de l'attitude d'Anthony démontre que le témoin est la véritable clé du système : en s'asseyant à côté d'Enzo et en s'adressant aux rieurs, il casse la mécanique de validation sociale sans user de violence physique. Réponse validée : <strong>Option B (valeur = 2)</strong>.
+      </p>
+    </div>
+
+    <div class="answer-card">
+      <h4>
+        <span>Énigme 4 : Ligne d'Urgence 3018</span>
+        <span class="badge-code">Chiffre 4 = 8</span>
+      </h4>
+      <p>
+        La ligne nationale 3018 est le numéro unique pour les victimes et témoins de harcèlement et de violences numériques. Les élèves composent le 3-0-1-8 sur le clavier téléphonique interactif. Le dernier chiffre donne le 4ème chiffre du code : <strong>8</strong>.
+      </p>
+    </div>
+
+    <div class="callout red">
+      <strong>⚠️ RÈGLE FONDAMENTALE DE CE PARCOURS :</strong> Le code <code>3428</code> ne doit sous aucun prétexte s'afficher sur l'écran du smartphone. Si les élèves ne l'ont pas noté sur leur fiche de route, ils doivent retourner consulter leurs énigmes résolues !
+    </div>
+
+    <!-- Corrigé Parcours 2 -->
+    <h3>Parcours 2 : « Cellule pHARe — 3 Dossiers Complexes »</h3>
+
+    <div class="answer-card">
+      <h4>Dossier 1 : Noah (Mème EPS, sticker WhatsApp & Meute)</h4>
+      <ul>
+        <li><strong>Qualification :</strong> Harcèlement scolaire et cyberharcèlement par l'effet de relais collectif. Même si Yanis n'a posté qu'une fois, le relais par stickers et moqueries répétées en classe crée le délit pénal. L'évitement scolaire du jeudi prouve l'atteinte psychologique grave.</li>
+        <li><strong>Responsabilités :</strong> Yanis est l'initiateur (atteinte au droit à l'image sans consentement). Sarah (transformation en sticker humiliant) et Kylian (diffusion dans un réseau tiers inter-collèges) aggravent l'infraction. Les spectateurs passifs alimentent la prime de notoriété des agresseurs.</li>
+        <li><strong>Sortie de crise :</strong> Capture d'écran horodatée avec identifiants visibles, signalement discret à la cellule pHARe / infirmière, et message privé bienveillant à Noah.</li>
+      </ul>
+    </div>
+
+    <div class="answer-card">
+      <h4>Dossier 2 : Léna (Rumeur & Ghosting à la Cantine)</h4>
+      <ul>
+        <li><strong>Qualification :</strong> Diffamation publique / non publique et harcèlement moral par exclusion organisée. La loi n'exige aucun coup physique : la destruction de la réputation et l'isolement délibéré pendant 3 semaines constituent une violence relationnelle sévère.</li>
+        <li><strong>Le piège de la loyauté :</strong> Les camarades n'osent pas s'asseoir avec Léna de peur d'être exclus à leur tour.</li>
+        <li><strong>Sortie de crise :</strong> Rompre le cercle en venant s'asseoir à deux ou trois à sa table, et inciter Léna à parler à la CPE accompagnée d'une amie.</li>
+      </ul>
+    </div>
+
+    <div class="answer-card">
+      <h4>Dossier 3 : Adam & Mathis (Riposte Hors-la-Loi & Doxxing NGL)</h4>
+      <ul>
+        <li><strong>Qualification :</strong> La justice ne reconnaît JAMAIS la légitime défense sur les réseaux sociaux. Filmer une personne dans un lieu privé comme les toilettes relève de l'atteinte à l'intimité de la vie privée (art. 226-1 du Code pénal, passible d'un an d'emprisonnement). La divulgation d'adresse (« doxxing ») met en danger physique la personne et constitue une circonstance aggravante.</li>
+        <li><strong>Le leurre de l'anonymat :</strong> Les plateformes comme NGL, Snapchat ou Instagram collaborent avec la justice : les réquisitions judiciaires obtiennent les adresses IP et identifiants techniques des opérateurs en quelques heures.</li>
+        <li><strong>Sortie de crise :</strong> Adam devait déposer plainte et saisir la cellule pHARe pour faire sanctionner Mathis, au lieu de commettre à son tour des délits qui le rendent coupable devant la loi.</li>
+      </ul>
+    </div>
+
+    <!-- Corrigé Parcours 3 -->
+    <h3>Parcours 3 : « L'Anatomie du Piège — Le 7ème Regard »</h3>
+
+    <div class="answer-card">
+      <h4>Module 1 : Décryptage des 4 Indices de l'Affiche</h4>
+      <ul>
+        <li><strong>Indice 1 (Les 6 Yeux) :</strong> Les 6 regards représentent la foule de témoins et la surveillance permanente. Sur les réseaux sociaux, ces yeux sont les compteurs de « vues » de stories qui suivent la victime 24h/24 jusque dans sa chambre.</li>
+        <li><strong>Indice 2 (Mains sur les yeux) :</strong> Double lecture fondamentale. Côté victime : isolement, honte, désir de disparaître. Côté témoins : la lâcheté ordinaire (« je fais l'autruche, je ne veux pas voir »), qui laisse le champ libre aux agresseurs.</li>
+        <li><strong>Indice 3 (Lettres dépareillées « h A R C e L E M e n T ») :</strong> Comme une lettre de rançon, chaque élève n'ajoute qu'une bribe (un rire, un partage, un like), se dédouanant individuellement, mais au final le mot est complet et le piège se referme.</li>
+        <li><strong>Indice 4 (« L'Amitié est-elle la clé ? ») :</strong> L'amitié est un réconfort mais pas une arme juridique ou disciplinaire. Les amis ont peur ou se sentent impuissants. La clé véritable est de <strong>briser le silence vers les adultes référents et le 3018</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="answer-card">
+      <h4>Module 2 : Grille d'Évaluation de la Scène du « 7ème Regard »</h4>
+      <p>Lors de la lecture flash en classe, l'enseignant et les pairs évaluent les 3 critères :</p>
+      <ul>
+        <li><strong>1. Réalisme (Pas d'héroïsme hollywoodien) :</strong> L'élève n'interrompt pas un cours en criant héroïquement, mais agit avec finesse (aparté en fin d'heure, message privé le soir).</li>
+        <li><strong>2. Préservation de sa propre sécurité :</strong> Pas d'affrontement frontal avec la bande, mais transmission discrète de preuves (captures d'écran) à un adulte de confiance.</li>
+        <li><strong>3. Rupture de l'isolement de la victime :</strong> Une phrase simple de soutien (<em>« Je sais que c'est faux, tu n'es pas seule »</em>) qui réduit immédiatement le risque de passage à l'acte dépressif.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION 4 : PROTOCOLE D'ANIMATION DU DÉBAT -->
+    <h2>4. Protocole d'Animation du Débat Plénier (15 minutes)</h2>
+    <div class="callout green">
+      <strong>Disposition de la classe :</strong> L'enseignant se place en modérateur neutre au tableau. Trois colonnes sont tracées : <em>« Ce qui est interdit par la loi »</em>, <em>« Ce que ressent la victime »</em>, <em>« Le geste précis qui stoppe la meute »</em>.
+    </div>
+
+    <ol>
+      <li><strong>Tirage au sort de 2 porte-paroles :</strong> Chaque groupe dispose de 2 minutes chronométrées pour exposer son cas ou lire sa scène.</li>
+      <li><strong>Vote flash à main levée :</strong> La classe vote sur la faisabilité de l'action dans le collège de Biguglia.</li>
+      <li><strong>Institutionalisation finale :</strong> Remise collective du Diplôme Citoyen pHARe (téléchargeable et imprimable directement depuis l'écran de fin de la plateforme).</li>
+    </ol>
+  </div>
+
+</body>
+</html>
